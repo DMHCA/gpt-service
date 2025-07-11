@@ -20,6 +20,9 @@ jobs:
           java-version: '21'
           distribution: 'temurin'
 
+      - name: Make gradlew executable
+        run: chmod +x ./gradlew
+
       - name: Check code formatting with Spotless
         run: ./gradlew spotlessCheck
 
@@ -35,5 +38,5 @@ jobs:
 
       - name: Build and push Docker image
         run: |
-          docker build -t ghcr.io/rem/gpt-service:latest .
-          docker push ghcr.io/rem/gpt-service:latest
+          docker build --no-cache -t ghcr.io/dmhca/gpt-service:latest .
+          docker push ghcr.io/dmhca/gpt-service:latest
