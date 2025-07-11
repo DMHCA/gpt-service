@@ -13,11 +13,11 @@ import reactor.core.publisher.Mono;
 @RequiredArgsConstructor
 public class TranslationController {
 
-    private final TranslationService translationService;
+  private final TranslationService translationService;
 
-    @PostMapping
-    public Mono<ResponseEntity<TranslationResponse>> translate(@RequestBody TranslationRequest request) {
-        return translationService.translateWord(request.word())
-                .map(ResponseEntity::ok);
-    }
+  @PostMapping
+  public Mono<ResponseEntity<TranslationResponse>> translate(
+      @RequestBody TranslationRequest request) {
+    return translationService.translateWord(request.word()).map(ResponseEntity::ok);
+  }
 }
